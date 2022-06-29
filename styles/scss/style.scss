@@ -1,0 +1,67 @@
+@import "variables";
+@import "mixins";
+
+* {
+    @include overal;
+}
+
+body {
+    background-color: $bgColor;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background-color: $primaryColor;
+
+    .logo-name {
+        @include textStyle(1.3rem, bold, $secondaryColor);
+    }
+    
+    .navbar {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        nav {
+            margin-right: 20px;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        a {
+            padding: 8px;
+            text-decoration: none;
+            transition: all .25s ease-in;
+            
+            @include textStyle(1rem,bold,$secondaryColor);
+            
+            &:hover {
+                color: $textColor;
+            }
+        }
+    }
+
+     .my-hamburger {
+        color:white;
+        display: none;
+    }
+
+    @include media(M){
+        .my-hamburger {
+            display: flex;
+        }
+        .navbar {
+            display: none;
+        }
+    }
+}

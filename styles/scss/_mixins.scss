@@ -1,0 +1,23 @@
+@mixin overal {
+   margin: 0; 
+   padding: 0;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+@mixin textStyle($size, $weight, $color) {
+   font-size: $size;
+   font-weight: $weight;
+   color: $color;
+}
+
+@mixin media($displaySize) {
+   @if ($displaySize == M) {
+      @media (max-width: 768px) {
+         @content;
+      }
+   } @else if ($displaySize == L){
+      @media (min-width: 768px) and (max-width: 1200px) {
+         @content;
+      }
+   }
+}
